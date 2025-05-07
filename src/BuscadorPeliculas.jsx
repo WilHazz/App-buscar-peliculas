@@ -7,10 +7,15 @@ export const BuscadorPeliculas = () => {
     setBusqueda(e.target.value);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetchPeliculas();
+  };
+
   return (
     <div className="container">
       <h1 className="title">Buscador de Peliculas</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Escribe una película"
