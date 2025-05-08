@@ -50,10 +50,11 @@ button:hover {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
+  cursor: pointer;
 }
 
 .movie-card {
-  background-color: #fff;
+  background-color: #b4b4b4;
   padding: 20px;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

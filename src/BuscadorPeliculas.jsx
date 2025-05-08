@@ -5,7 +5,7 @@ const API_KEY = "b50237ffdd0e38c14a824459ebe1ee87";
 
 export const BuscadorPeliculas = () => {
   const [busqueda, setBusqueda] = useState("");
-  const [Peliculas, setPeliculas] = useState([]);
+  const [peliculas, setPeliculas] = useState([]);
 
   const handleInputChange = (e) => {
     setBusqueda(e.target.value);
@@ -22,9 +22,9 @@ export const BuscadorPeliculas = () => {
         `${urlBase}?query=${busqueda}&api_key=${API_KEY}`
       );
       const data = await response.json();
-      setPeliculas(data);
+      setPeliculas(data.results || []);
     } catch (error) {
-      console.log("Ocurrio un erro: ", error);
+      console.log("Ocurrio un error: ", error);
     }
   };
 
@@ -42,12 +42,17 @@ export const BuscadorPeliculas = () => {
           Buscar
         </button>
       </form>
-      <div className="movie_list">
-        {Peliculas.map((pelicula) => {
-          <div key={pelicula.id} className="movie_card">
-            <img src="" alt="" />
-          </div>;
-        })}
+      <div className="movie-list">
+        {peliculas.map((pelicula) => (
+          <div key={pelicula.id} className="movie-card">
+            <img
+              src={`https://image.tmdb.org/t/p/w500${pelicula.poster_path}`}
+              alt={pelicula.title}
+            />
+            <h2>{pelicula.title}</h2>
+            <p>{pelicula.overview}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
