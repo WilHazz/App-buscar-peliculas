@@ -42,6 +42,13 @@ export const BuscadorPeliculas = () => {
           Buscar
         </button>
       </form>
+      <div className="movie_list">
+        {Peliculas.map((pelicula) => {
+          <div key={pelicula.id} className="movie_card">
+            <img src="" alt="" />
+          </div>;
+        })}
+      </div>
     </div>
   );
 };
