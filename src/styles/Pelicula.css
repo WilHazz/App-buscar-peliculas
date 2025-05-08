@@ -57,7 +57,7 @@ button:hover {
   background-color: #b4b4b4;
   padding: 20px;
   border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(247, 200, 70, 0.1);
 }
 
 .movie-card img {
